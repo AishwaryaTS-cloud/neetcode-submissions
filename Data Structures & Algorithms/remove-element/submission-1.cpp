@@ -1,18 +1,13 @@
 class Solution {
 public:
-    vector<vector<string>> groupAnagrams(vector<string>& strs) {
-        map<string , vector<string>>mp;
-
-        for(string s : strs){
-            string key = s;
-            sort(key.begin() , key.end());
-            mp[key].push_back(s);
+    int removeElement(vector<int>& nums, int val) {
+        int i = 0;
+        for(int j = 0; j < nums.size(); j++){
+            if(nums[j] != val){
+                nums[i] = nums[j];
+                i++;
+            }
         }
-        vector<vector<string>> ans;
-
-        for(auto it : mp)
-            ans.push_back(it.second);
-
-        return ans;
+        return i ;
     }
 };
